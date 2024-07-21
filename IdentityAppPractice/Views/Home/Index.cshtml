@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+@if(User.Identity.IsAuthenticated)
+{
+    @if(User.IsInRole("Pokemon"))
+    {
+        <h3>Your role is pokemon</h3>
+    }
+    else
+    {
+        <h3>Your role is pokemon trainer</h3>
+    }
+}
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="AllAccess">All Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="AuthorizedAccess">Authorized Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="UserAccess">User Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="UserORAdminAccess">UserORAdmin Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="UserANDAdminAccess">UserANDAdmin Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="AdminAccess">Admin Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="Admin_CreateAccess">Admin - Create only Claim Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="Admin_Create_Edit_DeleteAccess">Admin - Create,Edit & Delete Claim Access</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="Admin_Create_Edit_DeleteAccess_OR_SuperAdmin">Admin - Create,Edit & Delete Claim Access || Super Admin</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="OnlyBhrugen">Only Bhrugen</a>
+<a class="btn btn-success" asp-controller="AccessChecker" asp-action="FirstNameAuth">Check First Name Access</a>
